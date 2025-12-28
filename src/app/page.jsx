@@ -1,9 +1,15 @@
 import Image from "next/image";
-
+import Bannar from "@/Components/home/Bannar";
+import Products from "@/Components/home/Products";
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-     <h2 className="text-black bg-primary">Hello</h2>
+    <div className="">
+      <section>
+        <Bannar></Bannar>
+      </section>
+      <section>
+        <Products></Products>
+      </section>
     </div>
   );
 }
