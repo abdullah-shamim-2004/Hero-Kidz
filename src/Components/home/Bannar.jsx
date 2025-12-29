@@ -4,17 +4,13 @@ import React from "react";
 
 const Bannar = () => {
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between bg-base-200 md:p-10 items-center min-h-[80vh]">
       <div className="flex-1">
         <h2
           className={`${banglaFont.className}text-2xl md:text-6xl font-black md:leading-20`}
         >
-          আপনার সন্তানকে দিন{" "}
-          <span
-            className="text-primary "
-          >
-            সুন্দর ভবিষ্যত
-          </span>
+          আপনার সন্তানকে দিন <br />
+          <span className="text-primary ">সুন্দর ভবিষ্যত</span>
         </h2>
         <p className="text-gray-800 ">Buy every products up to 15% Dicount.</p>
         <button className="btn btn-outline btn-primary">Explore more</button>

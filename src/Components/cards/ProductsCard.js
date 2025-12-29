@@ -1,13 +1,14 @@
-import React from 'react';
-import { FaStar, FaShoppingCart, FaEye } from 'react-icons/fa';
+import Link from "next/link";
+import React from "react";
+import { FaStar, FaShoppingCart, FaEye } from "react-icons/fa";
 
 const ProductCard = ({ product }) => {
   // ডিসকাউন্ট প্রাইস ক্যালকুলেশন
-  const discountedPrice = product.price - (product.price * product.discount) / 100;
+  const discountedPrice =
+    product.price - (product.price * product.discount) / 100;
 
   return (
     <div className="max-w-sm bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden relative">
-      
       {/* Discount Badge */}
       {product.discount > 0 && (
         <div className="absolute top-4 left-4 z-10 bg-rose-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
@@ -24,9 +25,12 @@ const ProductCard = ({ product }) => {
         />
         {/* Hover Actions */}
         <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
-          <button className="bg-white p-3 rounded-full text-primary shadow-md hover:bg-primary hover:text-white transition-colors">
+          <Link
+            href={`/products/${product._id}`}
+            className="bg-white p-3 rounded-full text-primary shadow-md hover:bg-primary hover:text-white transition-colors"
+          >
             <FaEye />
-          </button>
+          </Link>
         </div>
       </div>
 
@@ -46,13 +50,24 @@ const ProductCard = ({ product }) => {
         {/* Ratings & Sold */}
         <div className="flex items-center gap-2 mb-4">
           <div className="flex text-amber-400 text-sm">
-             {[...Array(5)].map((_, i) => (
-                <FaStar key={i} className={i < Math.floor(product.ratings) ? "fill-current" : "text-slate-200"} />
-             ))}
+            {[...Array(5)].map((_, i) => (
+              <FaStar
+                key={i}
+                className={
+                  i < Math.floor(product.ratings)
+                    ? "fill-current"
+                    : "text-slate-200"
+                }
+              />
+            ))}
           </div>
-          <span className="text-xs font-medium text-slate-500">({product.reviews})</span>
+          <span className="text-xs font-medium text-slate-500">
+            ({product.reviews})
+          </span>
           <span className="text-xs text-slate-300">|</span>
-          <span className="text-xs font-medium text-slate-500">{product.sold} টি বিক্রি হয়েছে</span>
+          <span className="text-xs font-medium text-slate-500">
+            {product.sold} টি বিক্রি হয়েছে
+          </span>
         </div>
 
         {/* Pricing */}

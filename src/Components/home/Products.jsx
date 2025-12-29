@@ -1,9 +1,10 @@
 import React from "react";
-import products from "@/data/toys.json";
+// import products from "@/data/toys.json";
 import ProductsCard from "../cards/ProductsCard";
+import { getProducts } from "@/actions/server/products";
 
-const Products = () => {
-  console.log(products);
+const Products = async () => {
+  const products = await getProducts();
 
   return (
     <div>
